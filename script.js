@@ -37,6 +37,18 @@ tracks = [
         cover: "./audiopic/kaithi.jpg",
         source: "./music/Kaththi X Jawan Ahmed Musical Thalapathy Vijay Shah Rukh Khan Anirudh [TubeRipper.com].m4a",
     },
+    {
+        name: "Forever",
+        artist: "Gryffin ",
+        cover: "./audiopic/Griffyn_(43228990201).jpg",
+        source: "./music/Gryffin Elley Duhé - Forever (Official Music Video) [TubeRipper.com].m4a",
+    },
+    {
+        name: "Just for a moment",
+        artist: "Gryffin ",
+        cover: "./audiopic/Griffyn_(43228990201).jpg",
+        source: "./music/Gryffin - Just For A Moment ft. Iselin [TubeRipper.com].m4a",
+    },
 
 ];
 
@@ -75,6 +87,7 @@ let i = 0;
 let audio = new Audio(tracks[i].source); //initially accessed
 
 
+//to change the playbtn 
 let changeIcon = () => {
     if (cntrlIcon.classList.contains("fa-play")) {
         cntrlIcon.classList.remove("fa-play");
@@ -135,7 +148,10 @@ prev.addEventListener("click", () => {
         console.log("for the prev music");
         btn = "running";
     }
+    if(btn=="paused"){
 
+        changeIcon();
+    }
 
 
     if (i == 0) {
@@ -152,7 +168,10 @@ prev.addEventListener("click", () => {
 
         audio.play();
         btn = "running";
-        timeStatus();
+         
+             
+            timeStatus();
+         
     }
     else {
         i--;
@@ -174,13 +193,17 @@ prev.addEventListener("click", () => {
 
 //for the next buttom function
 next.addEventListener("click", async () => {
-    changeIcon();
     if (btn == "running") {
         stop();
         console.log("for the next music")
         btn = "running";
     }
     
+     if(btn=="paused"){
+
+         changeIcon();
+          btn="running";
+     }
 
     i++; //increment in ith value
 
@@ -247,22 +270,28 @@ const timeStatus = () => {
 
             curTime.innerText = "0" + parseInt(parseInt(audio.currentTime) / 60) + ":" + parseInt((parseInt(audio.currentTime) % 60) / 10) + parseInt((parseInt(audio.currentTime) % 60) % 10);
             //   console.log(curTime.innerText);
-            range(parseInt(audio.currentTime));
+             
+
+                 range(parseInt(audio.currentTime));
+            
         }
 
         else {
 
             curTime.innerText = "00:" + parseInt((parseInt(audio.currentTime)) / 10) + (parseInt(audio.currentTime)) % 10;
 
-            range(parseInt(audio.currentTime));
+           
+
+                range(parseInt(audio.currentTime));
+           
 
 
         }
 
         if (p == curTime.innerText) {
+            changeIcon();
             btn = "paused";
             console.log("hiii");
-            changeIcon();
             clearInterval(n);
         }
 
