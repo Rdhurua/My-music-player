@@ -1,23 +1,34 @@
 // Write your javascript here
+let defaultImage="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
 tracks = [
+    
     {
-        name: "celebration of Varisu",
-        artist: "Thaman S",
-        cover: "./audiopic/celebration.avif",
-        source: "./music/Celebration of Varisu Ringtone [ Download Link ] [TubeRipper.com].m4a",
+        name: "Bujji Theme",
+        artist: "Priya Ragu",
+        cover: "https://www.drivespark.com/img/2024/06/kalki-2898-bujji-robot-car-cover-1719471662.jpg",
+        source: "./music/Bujji Theme Music.mp3",
     },
+
     {
-        name: "Crazy Crazy feeling",
-        artist: "Devi Sri Prasad",
-        cover: "./audiopic/crazy crazy.webp",
-        source: "./music/𝐂𝐑𝐀𝐙𝐘 𝐅𝐄𝐄𝐋𝐈𝐍𝐆 𝐒𝐎𝐔𝐓𝐇 𝐌𝐎𝐕𝐈𝐄 𝐒𝐎𝐍𝐆 𝐑𝐈𝐍𝐆𝐓𝐎𝐍𝐄 𝐓𝐇𝐄 𝐔𝐒𝐄 𝐅𝐎𝐑 𝐌𝐎𝐁𝐈𝐋𝐄 [TubeRipper.com].m4a",
+        name: "Forever",
+        artist: "Gryffin ",
+        cover: "./audiopic/Griffyn_(43228990201).jpg",
+        source: "./music/Gryffin Elley Duhé - Forever (Official Music Video) [TubeRipper.com].m4a",
     },
+    
     {
-        name: "Jimmiki Ponnu ",
-        artist: "Anirudh Ravichander and Jonita Gandhi",
-        cover: "./audiopic/jimmiki ponnu.jpg",
-        source: "./music/VARISU - Jimikki Ponnu Ringtone [ Download link ] [TubeRipper.com].m4a",
+        name: "Just for a moment",
+        artist: "Gryffin ",
+        cover: "./audiopic/Griffyn_(43228990201).jpg",
+        source: "./music/Gryffin - Just For A Moment ft. Iselin [TubeRipper.com].m4a",
+    },
+
+    {
+        name: "Jolly O Gymkhana",
+        artist: " Vijay, Anirudh Ravichander",
+        cover: "https://images.ottplay.com/images/beast-929.jpg",
+        source: "./music/Jolly O Gymkhana.mp3",
     },
     {
         name: "Varram",
@@ -26,10 +37,10 @@ tracks = [
         source: "./music/Vaaram BGM RingtoneBGM Ringtonebgm ringtone 2023Love RingtoneLove Status Ringtone [TubeRipper.com].mp3",
     },
     {
-        name: "Believe in yourself",
-        artist: "A.R. Rahman",
-        cover: "./audiopic/believe.png",
-        source: "./music/Believe in You A R Rahman Motivational video GV Mediaworks [TubeRipper.com].m4a",
+        name: "PEACE",
+        artist: "devotion",
+        cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMpWr7Met3co_CyyFqcyqbDtKlpV94zjmFGw&s",
+        source: "./music/PEACE  RINGTONE.mp3",
     },
     {
         name: "Kaththi X Jawan",
@@ -38,16 +49,10 @@ tracks = [
         source: "./music/Kaththi X Jawan Ahmed Musical Thalapathy Vijay Shah Rukh Khan Anirudh [TubeRipper.com].m4a",
     },
     {
-        name: "Forever",
-        artist: "Gryffin ",
-        cover: "./audiopic/Griffyn_(43228990201).jpg",
-        source: "./music/Gryffin Elley Duhé - Forever (Official Music Video) [TubeRipper.com].m4a",
-    },
-    {
-        name: "Just for a moment",
-        artist: "Gryffin ",
-        cover: "./audiopic/Griffyn_(43228990201).jpg",
-        source: "./music/Gryffin - Just For A Moment ft. Iselin [TubeRipper.com].m4a",
+        name: "Ringtone",
+        artist: "Unknown",
+        cover: "",
+        source: "./music/Ringtone.mp3",
     },
 
 ];
@@ -89,12 +94,17 @@ let audio = new Audio(tracks[i].source); //initially accessed
 
 //to change the playbtn 
 let changeIcon = () => {
+      console.log("icon is changed");
     if (cntrlIcon.classList.contains("fa-play")) {
         cntrlIcon.classList.remove("fa-play");
         cntrlIcon.classList.add("fa-pause");
+        cntrlIcon.classList.add("p");
+
     }
     else {
         cntrlIcon.classList.remove("fa-pause");
+        cntrlIcon.classList.remove("p");
+
         cntrlIcon.classList.add("fa-play");
     }
 }
@@ -103,7 +113,7 @@ let changeIcon = () => {
 
 //displaying 
 const music = (t) => {
-    img.src = tracks[t].cover;
+    img.src = tracks[t].cover?tracks[t].cover:defaultImage;
     title.innerText = tracks[t].name;
     singer.innerText = tracks[t].artist;
 
@@ -288,14 +298,16 @@ const timeStatus = () => {
 
         }
 
-        if (p == curTime.innerText) {
-            changeIcon();
+        if (audio.currentTime ==audio.duration) {
             btn = "paused";
             console.log("hiii");
+            changeIcon();
             clearInterval(n);
         }
 
     }, 1000);
+
+    
 
 }
 
