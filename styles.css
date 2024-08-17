@@ -276,12 +276,12 @@ border-radius: 50%;
 
 
       #heading{
-        font-size: 15px;
-         letter-spacing: 0px;
+        font-size: 22px;
+         letter-spacing: -1.5px;
       }
       .audio-container{
         width:397px;
-       
+         margin-bottom:12px;
         height: auto;
        
       }
