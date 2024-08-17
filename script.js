@@ -1,8 +1,8 @@
 // Write your javascript here
-let defaultImage="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+let defaultImage = "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
 tracks = [
-    
+
     {
         name: "Bujji Theme",
         artist: "Priya Ragu",
@@ -18,7 +18,7 @@ tracks = [
     {
         name: "Bhairava Anthem",
         artist: "diljit dosanjh",
-        cover: "./audiopic/Bhairava.jpg",
+        cover: "./audiopic/bhairava.jpg",
         source: "./music/Bhairava Anthem.mp3",
     },
 
@@ -28,7 +28,7 @@ tracks = [
         cover: "./audiopic/Griffyn_(43228990201).jpg",
         source: "./music/Gryffin Elley Duhé - Forever (Official Music Video) [TubeRipper.com].m4a",
     },
-    
+
     {
         name: "Just for a moment",
         artist: "Gryffin ",
@@ -167,7 +167,7 @@ let audio = new Audio(tracks[i].source); //initially accessed
 
 //to change the playbtn 
 let changeIcon = () => {
-      
+
     if (cntrlIcon.classList.contains("fa-play")) {
         cntrlIcon.classList.remove("fa-play");
         cntrlIcon.classList.add("fa-pause");
@@ -186,7 +186,7 @@ let changeIcon = () => {
 
 //displaying 
 const music = (t) => {
-    img.src = tracks[t].cover?tracks[t].cover:defaultImage;
+    img.src = tracks[t].cover ? tracks[t].cover : defaultImage;
     title.innerText = tracks[t].name;
     singer.innerText = tracks[t].artist;
 
@@ -203,7 +203,7 @@ const stop = () => {
 
 
 playbtn.addEventListener("click", () => {
-   changeIcon();
+    changeIcon();
     music(i);
     q = audio.duration;
     handleDur(audio);
@@ -227,7 +227,7 @@ prev.addEventListener("click", () => {
         stop();
         btn = "running";
     }
-    if(btn=="paused"){
+    if (btn == "paused") {
 
         changeIcon();
     }
@@ -246,10 +246,10 @@ prev.addEventListener("click", () => {
 
         audio.play();
         btn = "running";
-         
-             
-            timeStatus();
-         
+
+
+        timeStatus();
+
     }
     else {
         i--;
@@ -273,12 +273,12 @@ next.addEventListener("click", async () => {
         stop();
         btn = "running";
     }
-    
-     if(btn=="paused"){
 
-         changeIcon();
-          btn="running";
-     }
+    if (btn == "paused") {
+
+        changeIcon();
+        btn = "running";
+    }
 
     i++; //increment in ith value
 
@@ -305,7 +305,7 @@ next.addEventListener("click", async () => {
 //for handling the audio.duration
 const handleDur = (song) => {
     if (song.duration > 60) {
-        
+
         duration.innerText = "0" + parseInt(parseInt(song.duration) / 60) + ":" + parseInt((parseInt(song.duration) % 60) / 10) + parseInt((parseInt(song.duration) % 60) % 10);
         p = duration.innerText;
 
@@ -334,7 +334,7 @@ const range = (curr) => {
 
 //for tracking the current time and displaying the data
 const timeStatus = () => {
-    
+
 
     let n = setInterval(() => {
 
@@ -345,25 +345,25 @@ const timeStatus = () => {
 
             curTime.innerText = "0" + parseInt(parseInt(audio.currentTime) / 60) + ":" + parseInt((parseInt(audio.currentTime) % 60) / 10) + parseInt((parseInt(audio.currentTime) % 60) % 10);
             //   console.log(curTime.innerText);
-             
 
-                 range(parseInt(audio.currentTime));
-            
+
+            range(parseInt(audio.currentTime));
+
         }
 
         else {
 
             curTime.innerText = "00:" + parseInt((parseInt(audio.currentTime)) / 10) + (parseInt(audio.currentTime)) % 10;
 
-           
 
-                range(parseInt(audio.currentTime));
-           
+
+            range(parseInt(audio.currentTime));
+
 
 
         }
 
-        if (audio.currentTime ==audio.duration) {
+        if (audio.currentTime == audio.duration) {
             btn = "paused";
             changeIcon();
             clearInterval(n);
@@ -371,7 +371,7 @@ const timeStatus = () => {
 
     }, 1000);
 
-    
+
 
 }
 
