@@ -276,7 +276,7 @@ border-radius: 50%;
 
 
       #heading{
-        font-size: 30px;
+        font-size: 28px;
          letter-spacing: -1.5px;
       }
       .audio-container{
@@ -307,7 +307,7 @@ border-radius: 50%;
   
   @keyframes fadeUpColors {
     0% {
-        transform: translateY(100px);
+        transform: translateY(60px);
         opacity: 0.4;
         color: #e03955;;
     }
@@ -325,7 +325,7 @@ border-radius: 50%;
         opacity: 0.75;
     }
     100% {
-        transform: translateY(-100px);
+        transform: translateY(-60px);
         color:#ed3c5a;;
         opacity: 0.4;
     }
