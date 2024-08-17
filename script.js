@@ -167,7 +167,7 @@ let audio = new Audio(tracks[i].source); //initially accessed
 
 //to change the playbtn 
 let changeIcon = () => {
-      console.log("icon is changed");
+      
     if (cntrlIcon.classList.contains("fa-play")) {
         cntrlIcon.classList.remove("fa-play");
         cntrlIcon.classList.add("fa-pause");
@@ -194,10 +194,9 @@ const music = (t) => {
 }
 
 
-
+//stopping function
 const stop = () => {
     audio.pause();
-    console.log("music is stopped");
     btn = "paused";
 }
 
@@ -211,13 +210,11 @@ playbtn.addEventListener("click", () => {
     timeStatus();
     if (btn == "paused") {
         audio.play();
-        console.log("music is started");
         btn = "running";
 
     }
     else {
         stop();
-        console.log("it is playbtn");
     }
 });
 
@@ -228,7 +225,6 @@ prev.addEventListener("click", () => {
 
     if (btn == "running") {
         stop();
-        console.log("for the prev music");
         btn = "running";
     }
     if(btn=="paused"){
@@ -244,7 +240,6 @@ prev.addEventListener("click", () => {
         music(i);
 
         m = setInterval(() => {
-            console.log("hello rinku");
             handleDur(audio);
             clearInterval(m);
         }, 500);
@@ -262,14 +257,12 @@ prev.addEventListener("click", () => {
         music(i);
         q = audio.duration;
         m = setInterval(() => {
-            console.log("hello rinku");
             handleDur(audio);
             clearInterval(m);
         }, 500);
         audio.play();
         btn = "running"
         timeStatus();
-        console.log(p);
     }
 
 });
@@ -278,7 +271,6 @@ prev.addEventListener("click", () => {
 next.addEventListener("click", async () => {
     if (btn == "running") {
         stop();
-        console.log("for the next music")
         btn = "running";
     }
     
@@ -342,7 +334,7 @@ const range = (curr) => {
 
 //for tracking the current time and displaying the data
 const timeStatus = () => {
-    console.log(duration.innerText);
+    
 
     let n = setInterval(() => {
 
@@ -373,7 +365,6 @@ const timeStatus = () => {
 
         if (audio.currentTime ==audio.duration) {
             btn = "paused";
-            console.log("hiii");
             changeIcon();
             clearInterval(n);
         }
