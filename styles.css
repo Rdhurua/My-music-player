@@ -260,7 +260,7 @@ border-radius: 50%;
 
 
 
-@media (max-width:550px){
+@media (min-width:375px) and (max-width:765px){
      
    
   .container{ 
@@ -271,20 +271,19 @@ border-radius: 50%;
      align-items: center;
       flex-wrap: wrap;
        /* padding-top: 18px; */
-       padding-bottom: 20px;
+      
        
 
 
       #heading{
-        font-size: 24px;
+        font-size: 15px;
          letter-spacing: 0px;
       }
       .audio-container{
         width:397px;
        
         height: auto;
-        /* margin-top: 27px; */
-        /* margin-left: 47px; */
+       
       }
       .audio-progress {
         width: 362px;
@@ -296,6 +295,39 @@ border-radius: 50%;
         justify-content: space-between;
         align-items: center;
         font-size: 1.8rem;
+    }
+  }
+
+
+
+  .fade-up {
+    animation: fadeUpColors 5s infinite;
+    position: relative;
+  }
+  
+  @keyframes fadeUpColors {
+    0% {
+        transform: translateY(40px);
+        opacity: 0.4;
+        color: #e03955;;
+    }
+    25% {
+        color: orange;
+        opacity: 0.75;
+    }
+    50% {
+        transform: translateY(0);
+        color: yellow;
+        opacity: 1;
+    }
+    75% {
+        color: orange;
+        opacity: 0.75;
+    }
+    100% {
+        transform: translateY(-40px);
+        color:#ed3c5a;;
+        opacity: 0.4;
     }
   }
       
