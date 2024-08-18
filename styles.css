@@ -254,7 +254,22 @@ button {
   }
 }
 
-
+@media (max-width:364px){
+   #heading {
+     font-size:30px;
+   }
+  .audio-container {
+    background: #f2c7ce;
+    height: 558px;
+    width: 323px;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 18px 23px;
+    color: black;
+    border-radius: 45px 10px 45px 10px;
+    box-shadow: 3px 0 3px 3px rgba(102, 94, 77, 0.775);
+}
+}
 
 
 
